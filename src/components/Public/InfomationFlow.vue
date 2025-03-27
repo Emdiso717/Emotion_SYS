@@ -1,6 +1,7 @@
 <template>
     <div ref="container" class="flow-container">
-        <div v-if="loading" class="loading">数据加载中...</div>
+        <!-- <div v-if="loading" class="loading">数据加载中...</div> -->
+        <img alt="flow" src="../../../public/flow.png" style="height: auto; width: 600px;margin-top: 50px;" />
     </div>
 </template>
 
@@ -40,7 +41,7 @@ export default {
 
     async mounted() {
         await this.loadData();
-        this.initVis();
+        //this.initVis();
         window.addEventListener('resize', this.handleResize);
     },
 
@@ -64,7 +65,7 @@ export default {
                     return acc;
                 }, {});
 
-                
+
             } catch (error) {
                 console.error('数据加载失败:', error);
             }
@@ -110,7 +111,7 @@ export default {
                 .attr('stroke', '#6496c8')
                 .attr('stroke-width', 1)
                 .attr('d', area);
-            
+
             // 创建情感河流
             const stackGenerator = d3.stack()
                 .keys(d3.range(5))

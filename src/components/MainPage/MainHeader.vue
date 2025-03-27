@@ -15,12 +15,7 @@
         <div class="search-section">
           <div class="search-input-container">
             <font-awesome-icon icon="search" class="search-icon" />
-            <input
-              type="text"
-              placeholder="请输入搜索热点"
-              v-model="searchQuery"
-              class="search-input"
-            />
+            <input type="text" placeholder="请输入搜索热点" v-model="searchQuery" class="search-input" />
           </div>
           <button class="filter-button">
             <font-awesome-icon icon="filter" />
@@ -28,12 +23,8 @@
           </button>
         </div>
         <div class="view-controls">
-          <button
-            v-for="(mode, index) in viewModes"
-            :key="index"
-            @click="changeView(mode.type)"
-            :class="{ active: currentView === mode.type }"
-          >
+          <button v-for="(mode, index) in viewModes" :key="index" @click="changeView(mode.type)"
+            :class="{ active: currentView === mode.type }">
             <font-awesome-icon :icon="mode.icon" />
           </button>
         </div>
@@ -60,7 +51,8 @@ const changeView = (type) => {
 
 <style scoped>
 .header-container {
-  height: 120px; /* 增加高度以容纳两行内容 */
+  height: 120px;
+  /* 增加高度以容纳两行内容 */
   padding: 12px 24px;
 }
 
@@ -69,8 +61,10 @@ const changeView = (type) => {
   border-radius: 12px;
   padding: 10px 24px;
   display: flex;
-  flex-direction: column; /* 垂直排列两行 */
-  gap: -3px; /* 两行之间的间距 */
+  flex-direction: column;
+  /* 垂直排列两行 */
+  gap: -3px;
+  /* 两行之间的间距 */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
@@ -85,12 +79,13 @@ const changeView = (type) => {
 .logo-section {
   display: flex;
   align-items: center;
-  gap: 8px; /* Logo 和文字之间的间距 */
+  gap: 8px;
+  /* Logo 和文字之间的间距 */
 }
 
 .logo {
-  width: 240px;
-  height: 80px;
+  width: 180px;
+  height: auto;
   border-radius: 8px;
 }
 
@@ -103,8 +98,10 @@ const changeView = (type) => {
 }
 
 .title {
-  font-size: 40px; /* 调整字体大小 */
-  font-weight: 700; /* 加粗 */
+  font-size: 40px;
+  /* 调整字体大小 */
+  font-weight: 700;
+  /* 加粗 */
   color: #333;
   margin: 0;
   letter-spacing: 16px;
@@ -116,66 +113,91 @@ const changeView = (type) => {
   margin-left: 15px;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* 搜索栏和视图切换栏分别靠左和靠右 */
+  justify-content: space-between;
+  /* 搜索栏和视图切换栏分别靠左和靠右 */
 }
 
 .search-section {
   display: flex;
   align-items: center;
-  gap: 8px; /* 搜索栏和筛选按钮之间的间距 */
+  gap: 8px;
+  /* 搜索栏和筛选按钮之间的间距 */
 }
 
 .search-input-container {
   display: flex;
-  align-items: center; /* 垂直居中 */
-  border: 1px solid #ccc; /* 搜索栏边框 */
-  border-radius: 8px; /* 圆角 */
-  padding: 8px; /* 内边距 */
-  background-color: white; /* 背景色 */
-  width: 300px; /* 固定搜索栏宽度 */
+  align-items: center;
+  /* 垂直居中 */
+  border: 1px solid #ccc;
+  /* 搜索栏边框 */
+  border-radius: 8px;
+  /* 圆角 */
+  padding: 8px;
+  /* 内边距 */
+  background-color: white;
+  /* 背景色 */
+  width: 300px;
+  /* 固定搜索栏宽度 */
 }
 
 .search-icon {
-  margin-right: 8px; /* 图标与输入框的间距 */
-  color: #666; /* 图标颜色 */
+  margin-right: 8px;
+  /* 图标与输入框的间距 */
+  color: #666;
+  /* 图标颜色 */
 }
 
 .search-input {
-  flex: 1; /* 输入框占据剩余空间 */
-  border: none; /* 去除默认边框 */
-  outline: none; /* 去除聚焦时的边框 */
+  flex: 1;
+  /* 输入框占据剩余空间 */
+  border: none;
+  /* 去除默认边框 */
+  outline: none;
+  /* 去除聚焦时的边框 */
 }
 
 .filter-button {
   width: 90px;
   height: 35px;
-  border: 1px solid #ccc; /* 灰色描边 */
+  border: 1px solid #ccc;
+  /* 灰色描边 */
   border-radius: 8px;
-  background: transparent; /* 透明背景 */
+  background: transparent;
+  /* 透明背景 */
   cursor: pointer;
   transition: all 0.3s;
-  display: flex; /* 让图标和文字在同一行 */
-  align-items: center; /* 垂直居中 */
-  justify-content: center; /* 水平居中 */
-  gap: 12px; /* 图标和文字之间的间距 */
+  display: flex;
+  /* 让图标和文字在同一行 */
+  align-items: center;
+  /* 垂直居中 */
+  justify-content: center;
+  /* 水平居中 */
+  gap: 12px;
+  /* 图标和文字之间的间距 */
 }
 
 .filter-button:hover {
-  background: #f5f5f5; /* 悬停时背景变为浅灰色 */
+  background: #f5f5f5;
+  /* 悬停时背景变为浅灰色 */
 }
 
 .filter-text {
   font-size: 16px;
-  font-weight: normal; /* 修正为正常字体粗细 */
-  color: #666; /* 文字颜色改为灰色 */
+  font-weight: normal;
+  /* 修正为正常字体粗细 */
+  color: #666;
+  /* 文字颜色改为灰色 */
 }
 
 .view-controls {
   display: flex;
   align-items: center;
-  background: #f5f5f5; /* 灰色背景 */
-  padding: 4px; /* 内边距 */
-  border-radius: 8px; /* 圆角 */
+  background: #f5f5f5;
+  /* 灰色背景 */
+  padding: 4px;
+  /* 内边距 */
+  border-radius: 8px;
+  /* 圆角 */
   width: 149px;
   height: 40px;
   margin-left: 10px;
@@ -186,7 +208,8 @@ const changeView = (type) => {
   height: 30px;
   border: none;
   border-radius: 8px;
-  background: transparent; /* 透明背景 */
+  background: transparent;
+  /* 透明背景 */
   margin-left: 5px;
   cursor: pointer;
   transition: all 0.3s;
@@ -194,8 +217,11 @@ const changeView = (type) => {
 }
 
 .view-controls button.active {
-  background: white; /* 选中项白色背景 */
-  color: #146AF4; /* 选中项文字颜色 */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 选中项阴影 */
+  background: white;
+  /* 选中项白色背景 */
+  color: #146AF4;
+  /* 选中项文字颜色 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* 选中项阴影 */
 }
 </style>

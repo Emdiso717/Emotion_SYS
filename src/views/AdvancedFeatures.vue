@@ -55,23 +55,23 @@ export default {
     await this.fetchData();
   },
   methods: {
-  async fetchData() {
-    try {
-      const id = this.$route.params.id; // 获取路由参数中的 id
+    async fetchData() {
+      try {
+        const id = this.$route.params.id; // 获取路由参数中的 id
         const filePath = `/data/${id}_adv.json`;
         const response = await fetch(filePath);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        this.productData = data;
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        this.loading = false;
       }
-      const data = await response.json();
-      this.productData = data;
-    } catch (error) {
-      console.error('Error fetching data:', error);
-    } finally {
-      this.loading = false;
-    }
+    },
   },
-},
 };
 </script>
 
@@ -115,7 +115,7 @@ export default {
 .header-text {
   color: white;
   font-size: 40px;
-  text-align:left;
+  text-align: left;
   margin-left: 10px;
   font-family: Microsoft JhengHei UI;
   letter-spacing: 8px;
@@ -125,8 +125,9 @@ export default {
 .logo {
   font-weight: bold;
   margin-left: auto;
-  width: 255px;
-  height: 85px;
+  margin-right: 10px;
+  width: 200px;
+  height: auto;
 }
 
 /* 主体内容 */
@@ -143,21 +144,23 @@ export default {
 .row-1 {
   display: flex;
   gap: 1.5rem;
-  align-items: stretch; /* 使子元素高度一致 */
+  align-items: stretch;
+  /* 使子元素高度一致 */
 }
 
-.row-1 > :first-child {
-  flex: 1; 
+.row-1> :first-child {
+  flex: 1;
 }
 
-.row-1 > :last-child {
-  flex: 2.5; 
+.row-1> :last-child {
+  flex: 2.5;
 }
 
 .row-2 {
   display: flex;
   gap: 1.5rem;
-  align-items: stretch; /* 使子元素高度一致 */
+  align-items: stretch;
+  /* 使子元素高度一致 */
 }
 
 .card-large {
